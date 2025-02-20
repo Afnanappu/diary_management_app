@@ -3,15 +3,33 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-class DriverModel {
+part 'driver_model.g.dart';
+
+@HiveType(typeId: 1)
+class DriverModel extends HiveObject {
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final String name;
+
+  @HiveField(2)
   final String email;
+
+  @HiveField(3)
   final String password;
+
+  @HiveField(4)
   final String phoneNo;
+
+  @HiveField(5)
   final String profile;
+
+  @HiveField(6)
   final List<String> routes;
+
   DriverModel({
     required this.id,
     required this.name,

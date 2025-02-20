@@ -1,3 +1,60 @@
+import 'dart:developer';
+
+import 'package:dairy_management_app/features/driver/models/driver_model.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+
 class DriverServices {
-  //TODO: add service to fetch data from DB
+  final box = Hive.box<DriverModel>('DriverBox');
+
+  ///Get all driver details
+  List<DriverModel> getAllDriver() {
+    try {
+      return box.values.toList();
+    } on HiveError catch (e, stack) {
+      log(e.message, stackTrace: stack);
+      throw e.message;
+    } catch (e, stack) {
+      log(e.toString(), stackTrace: stack);
+      throw e.toString();
+    }
+  }
+
+  ///Add or update driver details
+  Future<void> addOrUpdateDriver(DriverModel driver) async {
+    try {
+      await box.put(driver.id, driver);
+    } on HiveError catch (e, stack) {
+      log(e.message, stackTrace: stack);
+      throw e.message;
+    } catch (e, stack) {
+      log(e.toString(), stackTrace: stack);
+      throw e.toString();
+    }
+  }
+
+  ///Delete Driver with given id if exist
+  Future<void> deleteDriver(String id) async {
+    try {
+      await box.delete(id);
+    } on HiveError catch (e, stack) {
+      log(e.message, stackTrace: stack);
+      throw e.message;
+    } catch (e, stack) {
+      log(e.toString(), stackTrace: stack);
+      throw e.toString();
+    }
+  }
+
+  ///Get Driver details with id if exist
+  DriverModel? getDriverDetails(String id) {
+    try {
+      return box.get(id);
+    } on HiveError catch (e, stack) {
+      log(e.message, stackTrace: stack);
+      throw e.message;
+    } catch (e, stack) {
+      log(e.toString(), stackTrace: stack);
+      throw e.toString();
+    }
+  }
 }

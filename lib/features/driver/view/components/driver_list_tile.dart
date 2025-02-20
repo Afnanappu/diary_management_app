@@ -32,7 +32,7 @@ class DriverListTile extends StatelessWidget {
                   ? FileImage(File(driver.profile))
                   : null,
           child:
-              File(driver.profile).existsSync()
+              !File(driver.profile).existsSync()
                   ? const Icon(
                     Icons.person,
                     color: AppColors.onSurface,

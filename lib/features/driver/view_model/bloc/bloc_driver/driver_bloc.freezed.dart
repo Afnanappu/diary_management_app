@@ -12,68 +12,57 @@ part of 'driver_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$DriverEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchDrivers,
-    required TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )
-    addDrivers,
-    required TResult Function(String id) editDriver,
+    required TResult Function(String? id, String name, String email,
+            String password, String phone, String? profile, List<String> routes)
+        addDrivers,
+    required TResult Function(DriverModel driver) editDriver,
     required TResult Function(String id) deleteDriver,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchDrivers,
-    TResult? Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult? Function(String id)? editDriver,
+    TResult? Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult? Function(DriverModel driver)? editDriver,
     TResult? Function(String id)? deleteDriver,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchDrivers,
-    TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult Function(String id)? editDriver,
+    TResult Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult Function(DriverModel driver)? editDriver,
     TResult Function(String id)? deleteDriver,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_FetchDrivers value) fetchDrivers,
     required TResult Function(_AddDrivers value) addDrivers,
     required TResult Function(_EditDriver value) editDriver,
     required TResult Function(_DeleteDriver value) deleteDriver,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_FetchDrivers value)? fetchDrivers,
     TResult? Function(_AddDrivers value)? addDrivers,
     TResult? Function(_EditDriver value)? editDriver,
     TResult? Function(_DeleteDriver value)? deleteDriver,
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_FetchDrivers value)? fetchDrivers,
@@ -81,15 +70,15 @@ mixin _$DriverEvent {
     TResult Function(_EditDriver value)? editDriver,
     TResult Function(_DeleteDriver value)? deleteDriver,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DriverEventCopyWith<$Res> {
   factory $DriverEventCopyWith(
-    DriverEvent value,
-    $Res Function(DriverEvent) then,
-  ) = _$DriverEventCopyWithImpl<$Res, DriverEvent>;
+          DriverEvent value, $Res Function(DriverEvent) then) =
+      _$DriverEventCopyWithImpl<$Res, DriverEvent>;
 }
 
 /// @nodoc
@@ -109,9 +98,8 @@ class _$DriverEventCopyWithImpl<$Res, $Val extends DriverEvent>
 /// @nodoc
 abstract class _$$FetchDriversImplCopyWith<$Res> {
   factory _$$FetchDriversImplCopyWith(
-    _$FetchDriversImpl value,
-    $Res Function(_$FetchDriversImpl) then,
-  ) = __$$FetchDriversImplCopyWithImpl<$Res>;
+          _$FetchDriversImpl value, $Res Function(_$FetchDriversImpl) then) =
+      __$$FetchDriversImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -119,9 +107,8 @@ class __$$FetchDriversImplCopyWithImpl<$Res>
     extends _$DriverEventCopyWithImpl<$Res, _$FetchDriversImpl>
     implements _$$FetchDriversImplCopyWith<$Res> {
   __$$FetchDriversImplCopyWithImpl(
-    _$FetchDriversImpl _value,
-    $Res Function(_$FetchDriversImpl) _then,
-  ) : super(_value, _then);
+      _$FetchDriversImpl _value, $Res Function(_$FetchDriversImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -150,15 +137,10 @@ class _$FetchDriversImpl implements _FetchDrivers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchDrivers,
-    required TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )
-    addDrivers,
-    required TResult Function(String id) editDriver,
+    required TResult Function(String? id, String name, String email,
+            String password, String phone, String? profile, List<String> routes)
+        addDrivers,
+    required TResult Function(DriverModel driver) editDriver,
     required TResult Function(String id) deleteDriver,
   }) {
     return fetchDrivers();
@@ -168,15 +150,10 @@ class _$FetchDriversImpl implements _FetchDrivers {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchDrivers,
-    TResult? Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult? Function(String id)? editDriver,
+    TResult? Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult? Function(DriverModel driver)? editDriver,
     TResult? Function(String id)? deleteDriver,
   }) {
     return fetchDrivers?.call();
@@ -186,15 +163,10 @@ class _$FetchDriversImpl implements _FetchDrivers {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchDrivers,
-    TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult Function(String id)? editDriver,
+    TResult Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult Function(DriverModel driver)? editDriver,
     TResult Function(String id)? deleteDriver,
     required TResult orElse(),
   }) {
@@ -249,17 +221,17 @@ abstract class _FetchDrivers implements DriverEvent {
 /// @nodoc
 abstract class _$$AddDriversImplCopyWith<$Res> {
   factory _$$AddDriversImplCopyWith(
-    _$AddDriversImpl value,
-    $Res Function(_$AddDriversImpl) then,
-  ) = __$$AddDriversImplCopyWithImpl<$Res>;
+          _$AddDriversImpl value, $Res Function(_$AddDriversImpl) then) =
+      __$$AddDriversImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({
-    String name,
-    String email,
-    String password,
-    String phone,
-    String? profile,
-  });
+  $Res call(
+      {String? id,
+      String name,
+      String email,
+      String password,
+      String phone,
+      String? profile,
+      List<String> routes});
 }
 
 /// @nodoc
@@ -267,64 +239,70 @@ class __$$AddDriversImplCopyWithImpl<$Res>
     extends _$DriverEventCopyWithImpl<$Res, _$AddDriversImpl>
     implements _$$AddDriversImplCopyWith<$Res> {
   __$$AddDriversImplCopyWithImpl(
-    _$AddDriversImpl _value,
-    $Res Function(_$AddDriversImpl) _then,
-  ) : super(_value, _then);
+      _$AddDriversImpl _value, $Res Function(_$AddDriversImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = null,
     Object? email = null,
     Object? password = null,
     Object? phone = null,
     Object? profile = freezed,
+    Object? routes = null,
   }) {
-    return _then(
-      _$AddDriversImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        email:
-            null == email
-                ? _value.email
-                : email // ignore: cast_nullable_to_non_nullable
-                    as String,
-        password:
-            null == password
-                ? _value.password
-                : password // ignore: cast_nullable_to_non_nullable
-                    as String,
-        phone:
-            null == phone
-                ? _value.phone
-                : phone // ignore: cast_nullable_to_non_nullable
-                    as String,
-        profile:
-            freezed == profile
-                ? _value.profile
-                : profile // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
+    return _then(_$AddDriversImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+      phone: null == phone
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String,
+      profile: freezed == profile
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as String?,
+      routes: null == routes
+          ? _value._routes
+          : routes // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$AddDriversImpl implements _AddDrivers {
-  const _$AddDriversImpl({
-    required this.name,
-    required this.email,
-    required this.password,
-    required this.phone,
-    required this.profile,
-  });
+  const _$AddDriversImpl(
+      {required this.id,
+      required this.name,
+      required this.email,
+      required this.password,
+      required this.phone,
+      required this.profile,
+      required final List<String> routes})
+      : _routes = routes;
 
+  @override
+  final String? id;
   @override
   final String name;
   @override
@@ -335,10 +313,17 @@ class _$AddDriversImpl implements _AddDrivers {
   final String phone;
   @override
   final String? profile;
+  final List<String> _routes;
+  @override
+  List<String> get routes {
+    if (_routes is EqualUnmodifiableListView) return _routes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_routes);
+  }
 
   @override
   String toString() {
-    return 'DriverEvent.addDrivers(name: $name, email: $email, password: $password, phone: $phone, profile: $profile)';
+    return 'DriverEvent.addDrivers(id: $id, name: $name, email: $email, password: $password, phone: $phone, profile: $profile, routes: $routes)';
   }
 
   @override
@@ -346,17 +331,19 @@ class _$AddDriversImpl implements _AddDrivers {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddDriversImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.phone, phone) || other.phone == phone) &&
-            (identical(other.profile, profile) || other.profile == profile));
+            (identical(other.profile, profile) || other.profile == profile) &&
+            const DeepCollectionEquality().equals(other._routes, _routes));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, email, password, phone, profile);
+  int get hashCode => Object.hash(runtimeType, id, name, email, password, phone,
+      profile, const DeepCollectionEquality().hash(_routes));
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -370,56 +357,41 @@ class _$AddDriversImpl implements _AddDrivers {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchDrivers,
-    required TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )
-    addDrivers,
-    required TResult Function(String id) editDriver,
+    required TResult Function(String? id, String name, String email,
+            String password, String phone, String? profile, List<String> routes)
+        addDrivers,
+    required TResult Function(DriverModel driver) editDriver,
     required TResult Function(String id) deleteDriver,
   }) {
-    return addDrivers(name, email, password, phone, profile);
+    return addDrivers(id, name, email, password, phone, profile, routes);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchDrivers,
-    TResult? Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult? Function(String id)? editDriver,
+    TResult? Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult? Function(DriverModel driver)? editDriver,
     TResult? Function(String id)? deleteDriver,
   }) {
-    return addDrivers?.call(name, email, password, phone, profile);
+    return addDrivers?.call(id, name, email, password, phone, profile, routes);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchDrivers,
-    TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult Function(String id)? editDriver,
+    TResult Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult Function(DriverModel driver)? editDriver,
     TResult Function(String id)? deleteDriver,
     required TResult orElse(),
   }) {
     if (addDrivers != null) {
-      return addDrivers(name, email, password, phone, profile);
+      return addDrivers(id, name, email, password, phone, profile, routes);
     }
     return orElse();
   }
@@ -463,19 +435,22 @@ class _$AddDriversImpl implements _AddDrivers {
 }
 
 abstract class _AddDrivers implements DriverEvent {
-  const factory _AddDrivers({
-    required final String name,
-    required final String email,
-    required final String password,
-    required final String phone,
-    required final String? profile,
-  }) = _$AddDriversImpl;
+  const factory _AddDrivers(
+      {required final String? id,
+      required final String name,
+      required final String email,
+      required final String password,
+      required final String phone,
+      required final String? profile,
+      required final List<String> routes}) = _$AddDriversImpl;
 
+  String? get id;
   String get name;
   String get email;
   String get password;
   String get phone;
   String? get profile;
+  List<String> get routes;
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -487,11 +462,10 @@ abstract class _AddDrivers implements DriverEvent {
 /// @nodoc
 abstract class _$$EditDriverImplCopyWith<$Res> {
   factory _$$EditDriverImplCopyWith(
-    _$EditDriverImpl value,
-    $Res Function(_$EditDriverImpl) then,
-  ) = __$$EditDriverImplCopyWithImpl<$Res>;
+          _$EditDriverImpl value, $Res Function(_$EditDriverImpl) then) =
+      __$$EditDriverImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String id});
+  $Res call({DriverModel driver});
 }
 
 /// @nodoc
@@ -499,37 +473,36 @@ class __$$EditDriverImplCopyWithImpl<$Res>
     extends _$DriverEventCopyWithImpl<$Res, _$EditDriverImpl>
     implements _$$EditDriverImplCopyWith<$Res> {
   __$$EditDriverImplCopyWithImpl(
-    _$EditDriverImpl _value,
-    $Res Function(_$EditDriverImpl) _then,
-  ) : super(_value, _then);
+      _$EditDriverImpl _value, $Res Function(_$EditDriverImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? id = null}) {
-    return _then(
-      _$EditDriverImpl(
-        null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                as String,
-      ),
-    );
+  $Res call({
+    Object? driver = null,
+  }) {
+    return _then(_$EditDriverImpl(
+      null == driver
+          ? _value.driver
+          : driver // ignore: cast_nullable_to_non_nullable
+              as DriverModel,
+    ));
   }
 }
 
 /// @nodoc
 
 class _$EditDriverImpl implements _EditDriver {
-  const _$EditDriverImpl(this.id);
+  const _$EditDriverImpl(this.driver);
 
   @override
-  final String id;
+  final DriverModel driver;
 
   @override
   String toString() {
-    return 'DriverEvent.editDriver(id: $id)';
+    return 'DriverEvent.editDriver(driver: $driver)';
   }
 
   @override
@@ -537,11 +510,11 @@ class _$EditDriverImpl implements _EditDriver {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EditDriverImpl &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.driver, driver) || other.driver == driver));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode => Object.hash(runtimeType, driver);
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -555,56 +528,41 @@ class _$EditDriverImpl implements _EditDriver {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchDrivers,
-    required TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )
-    addDrivers,
-    required TResult Function(String id) editDriver,
+    required TResult Function(String? id, String name, String email,
+            String password, String phone, String? profile, List<String> routes)
+        addDrivers,
+    required TResult Function(DriverModel driver) editDriver,
     required TResult Function(String id) deleteDriver,
   }) {
-    return editDriver(id);
+    return editDriver(driver);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchDrivers,
-    TResult? Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult? Function(String id)? editDriver,
+    TResult? Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult? Function(DriverModel driver)? editDriver,
     TResult? Function(String id)? deleteDriver,
   }) {
-    return editDriver?.call(id);
+    return editDriver?.call(driver);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchDrivers,
-    TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult Function(String id)? editDriver,
+    TResult Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult Function(DriverModel driver)? editDriver,
     TResult Function(String id)? deleteDriver,
     required TResult orElse(),
   }) {
     if (editDriver != null) {
-      return editDriver(id);
+      return editDriver(driver);
     }
     return orElse();
   }
@@ -648,9 +606,9 @@ class _$EditDriverImpl implements _EditDriver {
 }
 
 abstract class _EditDriver implements DriverEvent {
-  const factory _EditDriver(final String id) = _$EditDriverImpl;
+  const factory _EditDriver(final DriverModel driver) = _$EditDriverImpl;
 
-  String get id;
+  DriverModel get driver;
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -662,9 +620,8 @@ abstract class _EditDriver implements DriverEvent {
 /// @nodoc
 abstract class _$$DeleteDriverImplCopyWith<$Res> {
   factory _$$DeleteDriverImplCopyWith(
-    _$DeleteDriverImpl value,
-    $Res Function(_$DeleteDriverImpl) then,
-  ) = __$$DeleteDriverImplCopyWithImpl<$Res>;
+          _$DeleteDriverImpl value, $Res Function(_$DeleteDriverImpl) then) =
+      __$$DeleteDriverImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
@@ -674,23 +631,22 @@ class __$$DeleteDriverImplCopyWithImpl<$Res>
     extends _$DriverEventCopyWithImpl<$Res, _$DeleteDriverImpl>
     implements _$$DeleteDriverImplCopyWith<$Res> {
   __$$DeleteDriverImplCopyWithImpl(
-    _$DeleteDriverImpl _value,
-    $Res Function(_$DeleteDriverImpl) _then,
-  ) : super(_value, _then);
+      _$DeleteDriverImpl _value, $Res Function(_$DeleteDriverImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of DriverEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? id = null}) {
-    return _then(
-      _$DeleteDriverImpl(
-        null == id
-            ? _value.id
-            : id // ignore: cast_nullable_to_non_nullable
-                as String,
-      ),
-    );
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$DeleteDriverImpl(
+      null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -730,15 +686,10 @@ class _$DeleteDriverImpl implements _DeleteDriver {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() fetchDrivers,
-    required TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )
-    addDrivers,
-    required TResult Function(String id) editDriver,
+    required TResult Function(String? id, String name, String email,
+            String password, String phone, String? profile, List<String> routes)
+        addDrivers,
+    required TResult Function(DriverModel driver) editDriver,
     required TResult Function(String id) deleteDriver,
   }) {
     return deleteDriver(id);
@@ -748,15 +699,10 @@ class _$DeleteDriverImpl implements _DeleteDriver {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? fetchDrivers,
-    TResult? Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult? Function(String id)? editDriver,
+    TResult? Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult? Function(DriverModel driver)? editDriver,
     TResult? Function(String id)? deleteDriver,
   }) {
     return deleteDriver?.call(id);
@@ -766,15 +712,10 @@ class _$DeleteDriverImpl implements _DeleteDriver {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? fetchDrivers,
-    TResult Function(
-      String name,
-      String email,
-      String password,
-      String phone,
-      String? profile,
-    )?
-    addDrivers,
-    TResult Function(String id)? editDriver,
+    TResult Function(String? id, String name, String email, String password,
+            String phone, String? profile, List<String> routes)?
+        addDrivers,
+    TResult Function(DriverModel driver)? editDriver,
     TResult Function(String id)? deleteDriver,
     required TResult orElse(),
   }) {
@@ -841,47 +782,58 @@ mixin _$DriverState {
     required TResult Function() loading,
     required TResult Function(List<DriverModel> driverList) loaded,
     required TResult Function(String error) error,
-  }) => throw _privateConstructorUsedError;
+    required TResult Function(String message) success,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
     TResult? Function(List<DriverModel> driverList)? loaded,
     TResult? Function(String error)? error,
-  }) => throw _privateConstructorUsedError;
+    TResult? Function(String message)? success,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
     TResult Function(List<DriverModel> driverList)? loaded,
     TResult Function(String error)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
-  }) => throw _privateConstructorUsedError;
+    required TResult Function(_Success value) success,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
-  }) => throw _privateConstructorUsedError;
+    TResult? Function(_Success value)? success,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
     required TResult orElse(),
-  }) => throw _privateConstructorUsedError;
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $DriverStateCopyWith<$Res> {
   factory $DriverStateCopyWith(
-    DriverState value,
-    $Res Function(DriverState) then,
-  ) = _$DriverStateCopyWithImpl<$Res, DriverState>;
+          DriverState value, $Res Function(DriverState) then) =
+      _$DriverStateCopyWithImpl<$Res, DriverState>;
 }
 
 /// @nodoc
@@ -901,9 +853,8 @@ class _$DriverStateCopyWithImpl<$Res, $Val extends DriverState>
 /// @nodoc
 abstract class _$$LoadingImplCopyWith<$Res> {
   factory _$$LoadingImplCopyWith(
-    _$LoadingImpl value,
-    $Res Function(_$LoadingImpl) then,
-  ) = __$$LoadingImplCopyWithImpl<$Res>;
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
@@ -911,9 +862,8 @@ class __$$LoadingImplCopyWithImpl<$Res>
     extends _$DriverStateCopyWithImpl<$Res, _$LoadingImpl>
     implements _$$LoadingImplCopyWith<$Res> {
   __$$LoadingImplCopyWithImpl(
-    _$LoadingImpl _value,
-    $Res Function(_$LoadingImpl) _then,
-  ) : super(_value, _then);
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of DriverState
   /// with the given fields replaced by the non-null parameter values.
@@ -944,6 +894,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function() loading,
     required TResult Function(List<DriverModel> driverList) loaded,
     required TResult Function(String error) error,
+    required TResult Function(String message) success,
   }) {
     return loading();
   }
@@ -954,6 +905,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function()? loading,
     TResult? Function(List<DriverModel> driverList)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function(String message)? success,
   }) {
     return loading?.call();
   }
@@ -964,6 +916,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function()? loading,
     TResult Function(List<DriverModel> driverList)? loaded,
     TResult Function(String error)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -978,6 +931,7 @@ class _$LoadingImpl implements _Loading {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
   }) {
     return loading(this);
   }
@@ -988,6 +942,7 @@ class _$LoadingImpl implements _Loading {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
   }) {
     return loading?.call(this);
   }
@@ -998,6 +953,7 @@ class _$LoadingImpl implements _Loading {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1014,9 +970,8 @@ abstract class _Loading implements DriverState {
 /// @nodoc
 abstract class _$$LoadedImplCopyWith<$Res> {
   factory _$$LoadedImplCopyWith(
-    _$LoadedImpl value,
-    $Res Function(_$LoadedImpl) then,
-  ) = __$$LoadedImplCopyWithImpl<$Res>;
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<DriverModel> driverList});
 }
@@ -1026,23 +981,22 @@ class __$$LoadedImplCopyWithImpl<$Res>
     extends _$DriverStateCopyWithImpl<$Res, _$LoadedImpl>
     implements _$$LoadedImplCopyWith<$Res> {
   __$$LoadedImplCopyWithImpl(
-    _$LoadedImpl _value,
-    $Res Function(_$LoadedImpl) _then,
-  ) : super(_value, _then);
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of DriverState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? driverList = null}) {
-    return _then(
-      _$LoadedImpl(
-        null == driverList
-            ? _value._driverList
-            : driverList // ignore: cast_nullable_to_non_nullable
-                as List<DriverModel>,
-      ),
-    );
+  $Res call({
+    Object? driverList = null,
+  }) {
+    return _then(_$LoadedImpl(
+      null == driverList
+          ? _value._driverList
+          : driverList // ignore: cast_nullable_to_non_nullable
+              as List<DriverModel>,
+    ));
   }
 }
 
@@ -1050,7 +1004,7 @@ class __$$LoadedImplCopyWithImpl<$Res>
 
 class _$LoadedImpl implements _Loaded {
   const _$LoadedImpl(final List<DriverModel> driverList)
-    : _driverList = driverList;
+      : _driverList = driverList;
 
   final List<DriverModel> _driverList;
   @override
@@ -1070,17 +1024,13 @@ class _$LoadedImpl implements _Loaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadedImpl &&
-            const DeepCollectionEquality().equals(
-              other._driverList,
-              _driverList,
-            ));
+            const DeepCollectionEquality()
+                .equals(other._driverList, _driverList));
   }
 
   @override
   int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_driverList),
-  );
+      runtimeType, const DeepCollectionEquality().hash(_driverList));
 
   /// Create a copy of DriverState
   /// with the given fields replaced by the non-null parameter values.
@@ -1096,6 +1046,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function() loading,
     required TResult Function(List<DriverModel> driverList) loaded,
     required TResult Function(String error) error,
+    required TResult Function(String message) success,
   }) {
     return loaded(driverList);
   }
@@ -1106,6 +1057,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function()? loading,
     TResult? Function(List<DriverModel> driverList)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function(String message)? success,
   }) {
     return loaded?.call(driverList);
   }
@@ -1116,6 +1068,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function()? loading,
     TResult Function(List<DriverModel> driverList)? loaded,
     TResult Function(String error)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1130,6 +1083,7 @@ class _$LoadedImpl implements _Loaded {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
   }) {
     return loaded(this);
   }
@@ -1140,6 +1094,7 @@ class _$LoadedImpl implements _Loaded {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
   }) {
     return loaded?.call(this);
   }
@@ -1150,6 +1105,7 @@ class _$LoadedImpl implements _Loaded {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1174,9 +1130,8 @@ abstract class _Loaded implements DriverState {
 /// @nodoc
 abstract class _$$ErrorImplCopyWith<$Res> {
   factory _$$ErrorImplCopyWith(
-    _$ErrorImpl value,
-    $Res Function(_$ErrorImpl) then,
-  ) = __$$ErrorImplCopyWithImpl<$Res>;
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String error});
 }
@@ -1186,23 +1141,22 @@ class __$$ErrorImplCopyWithImpl<$Res>
     extends _$DriverStateCopyWithImpl<$Res, _$ErrorImpl>
     implements _$$ErrorImplCopyWith<$Res> {
   __$$ErrorImplCopyWithImpl(
-    _$ErrorImpl _value,
-    $Res Function(_$ErrorImpl) _then,
-  ) : super(_value, _then);
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
+      : super(_value, _then);
 
   /// Create a copy of DriverState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? error = null}) {
-    return _then(
-      _$ErrorImpl(
-        null == error
-            ? _value.error
-            : error // ignore: cast_nullable_to_non_nullable
-                as String,
-      ),
-    );
+  $Res call({
+    Object? error = null,
+  }) {
+    return _then(_$ErrorImpl(
+      null == error
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
   }
 }
 
@@ -1244,6 +1198,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function() loading,
     required TResult Function(List<DriverModel> driverList) loaded,
     required TResult Function(String error) error,
+    required TResult Function(String message) success,
   }) {
     return error(this.error);
   }
@@ -1254,6 +1209,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function()? loading,
     TResult? Function(List<DriverModel> driverList)? loaded,
     TResult? Function(String error)? error,
+    TResult? Function(String message)? success,
   }) {
     return error?.call(this.error);
   }
@@ -1264,6 +1220,7 @@ class _$ErrorImpl implements _Error {
     TResult Function()? loading,
     TResult Function(List<DriverModel> driverList)? loaded,
     TResult Function(String error)? error,
+    TResult Function(String message)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1278,6 +1235,7 @@ class _$ErrorImpl implements _Error {
     required TResult Function(_Loading value) loading,
     required TResult Function(_Loaded value) loaded,
     required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
   }) {
     return error(this);
   }
@@ -1288,6 +1246,7 @@ class _$ErrorImpl implements _Error {
     TResult? Function(_Loading value)? loading,
     TResult? Function(_Loaded value)? loaded,
     TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
   }) {
     return error?.call(this);
   }
@@ -1298,6 +1257,7 @@ class _$ErrorImpl implements _Error {
     TResult Function(_Loading value)? loading,
     TResult Function(_Loaded value)? loaded,
     TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1316,5 +1276,157 @@ abstract class _Error implements DriverState {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ErrorImplCopyWith<_$ErrorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SuccessImplCopyWith<$Res> {
+  factory _$$SuccessImplCopyWith(
+          _$SuccessImpl value, $Res Function(_$SuccessImpl) then) =
+      __$$SuccessImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$SuccessImplCopyWithImpl<$Res>
+    extends _$DriverStateCopyWithImpl<$Res, _$SuccessImpl>
+    implements _$$SuccessImplCopyWith<$Res> {
+  __$$SuccessImplCopyWithImpl(
+      _$SuccessImpl _value, $Res Function(_$SuccessImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of DriverState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$SuccessImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SuccessImpl implements _Success {
+  const _$SuccessImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'DriverState.success(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SuccessImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of DriverState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
+      __$$SuccessImplCopyWithImpl<_$SuccessImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(List<DriverModel> driverList) loaded,
+    required TResult Function(String error) error,
+    required TResult Function(String message) success,
+  }) {
+    return success(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(List<DriverModel> driverList)? loaded,
+    TResult? Function(String error)? error,
+    TResult? Function(String message)? success,
+  }) {
+    return success?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(List<DriverModel> driverList)? loaded,
+    TResult Function(String error)? error,
+    TResult Function(String message)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Loading value) loading,
+    required TResult Function(_Loaded value) loaded,
+    required TResult Function(_Error value) error,
+    required TResult Function(_Success value) success,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Loading value)? loading,
+    TResult? Function(_Loaded value)? loaded,
+    TResult? Function(_Error value)? error,
+    TResult? Function(_Success value)? success,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Loading value)? loading,
+    TResult Function(_Loaded value)? loaded,
+    TResult Function(_Error value)? error,
+    TResult Function(_Success value)? success,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Success implements DriverState {
+  const factory _Success(final String message) = _$SuccessImpl;
+
+  String get message;
+
+  /// Create a copy of DriverState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SuccessImplCopyWith<_$SuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

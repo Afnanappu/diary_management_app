@@ -1,3 +1,4 @@
+import 'package:dairy_management_app/core/components/custom_snack_bar.dart';
 import 'package:dairy_management_app/core/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,12 +21,24 @@ class ScreenDriver extends StatelessWidget {
       appBar: CustomAppBar(title: 'Driver Management'),
       body: Padding(
         padding: const EdgeInsets.all(5.0),
-        child: BlocBuilder<DriverBloc, DriverState>(
+        child: BlocConsumer<DriverBloc, DriverState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              orElse: () {},
+              success: (message) {
+                showCustomSnackBar(
+                  context: context,
+                  content: message,
+                  color: AppColors.success,
+                );
+              },
+            );
+          },
           builder: (context, state) {
             return state.maybeWhen(
               loading: () => Center(child: CircularProgressIndicator()),
               error: (error) => Center(child: Text(error)),
-              orElse: () => Text('data'),
+              orElse: () => Text('Some unexpected error occurred'),
               loaded: (driverList) {
                 return driverList.isEmpty
                     ? Center(child: Text('No driver added'))
@@ -49,6 +62,7 @@ class ScreenDriver extends StatelessWidget {
                             },
                             onDelete: () {
                               //TODO: Delete with care, first need to check if he is already have any routes
+                              _showDeleteDialog(context, driver.id);
                             },
                           );
                         },
@@ -67,6 +81,35 @@ class ScreenDriver extends StatelessWidget {
         },
         label: Text('Add Driver'),
       ),
+    );
+  }
+
+  void _showDeleteDialog(BuildContext context, String driverId) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Confirm Deletion"),
+          content: const Text("Are you sure you want to delete this driver?"),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close dialog
+              },
+              child: const Text("Cancel"),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close dialog
+                context.read<DriverBloc>().add(
+                  DriverEvent.deleteDriver(driverId),
+                );
+              },
+              child: const Text("Delete", style: TextStyle(color: Colors.red)),
+            ),
+          ],
+        );
+      },
     );
   }
 }
