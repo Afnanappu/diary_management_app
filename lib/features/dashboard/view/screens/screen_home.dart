@@ -14,10 +14,11 @@ class ScreenHome extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(title: 'Dashboard'),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 5),
         child: ListView(
           shrinkWrap: true,
           children: [
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
