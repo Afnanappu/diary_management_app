@@ -1,9 +1,9 @@
 import 'package:dairy_management_app/features/driver/models/driver_model.dart';
+import 'package:dairy_management_app/features/store/models/store_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class HiveServices {
-  // late Box box;
-
+  
   ///This function will initialize Hive for flutter and register adepter's 
   ///and open all boxes
   static Future<void> initialize() async {
@@ -13,7 +13,13 @@ class HiveServices {
     if (!Hive.isAdapterRegistered(DriverModelAdapter().typeId)) {
       Hive.registerAdapter(DriverModelAdapter());
     }
+    if (!Hive.isAdapterRegistered(StoreModelAdapter().typeId)) {
+      Hive.registerAdapter(StoreModelAdapter());
+    }
 
-    await Hive.openBox<DriverModel>('DriverBox'); //driver model box
+
+    //Opening all boxes
+    await Hive.openBox<DriverModel>('DriverBox'); //Open driver box
+    await Hive.openBox<StoreModel>('StoreBox'); // Open Store Box
   }
 }

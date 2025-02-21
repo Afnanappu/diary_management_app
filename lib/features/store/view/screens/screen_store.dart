@@ -5,23 +5,23 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:dairy_management_app/core/components/custom_app_bar.dart';
 import 'package:dairy_management_app/core/constants/navigation.dart';
-import 'package:dairy_management_app/features/driver/view/components/driver_list_tile.dart';
-import 'package:dairy_management_app/features/driver/view/screens/screen_add_or_edit_driver.dart';
-import 'package:dairy_management_app/features/driver/view_model/bloc_driver/driver_bloc.dart';
+import 'package:dairy_management_app/features/store/view/components/store_list_tile.dart';
+import 'package:dairy_management_app/features/store/view/screens/screen_add_or_edit_store.dart';
+import 'package:dairy_management_app/features/store/view_model/bloc_store/store_bloc.dart';
 
-class ScreenDriver extends StatelessWidget {
-  const ScreenDriver({super.key});
+class ScreenStore extends StatelessWidget {
+  const ScreenStore({super.key});
 
   @override
   Widget build(BuildContext context) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<DriverBloc>().add(DriverEvent.fetchDrivers());
+      context.read<StoreBloc>().add(StoreEvent.fetchStores());
     });
     return Scaffold(
-      appBar: CustomAppBar(title: 'Driver Management'),
+      appBar: CustomAppBar(title: 'Store Management'),
       body: Padding(
         padding: const EdgeInsets.all(5.0),
-        child: BlocConsumer<DriverBloc, DriverState>(
+        child: BlocConsumer<StoreBloc, StoreState>(
           listener: (context, state) {
             state.maybeWhen(
               orElse: () {},
@@ -39,30 +39,29 @@ class ScreenDriver extends StatelessWidget {
               loading: () => Center(child: CircularProgressIndicator()),
               error: (error) => Center(child: Text(error)),
               orElse: () => Text('Some unexpected error occurred'),
-              loaded: (driverList) {
-                return driverList.isEmpty
-                    ? Center(child: Text('No driver added'))
+              loaded: (storeList) {
+                return storeList.isEmpty
+                    ? Center(child: Text('No store added'))
                     : Padding(
                       padding: const EdgeInsets.only(bottom: 30),
                       child: ListView.builder(
                         shrinkWrap: true,
-                        itemCount: driverList.length,
+                        itemCount: storeList.length,
                         itemBuilder: (context, index) {
-                          final driver = driverList[index];
-                          return DriverListTile(
-                            driver: driver,
+                          final store = storeList[index];
+                          return StoreListTile(
+                            store: store,
                             onEdit: () {
                               Nav.push(
                                 context,
-                                ScreenAddOrEditDriver(
-                                  driver: driver,
+                                ScreenAddOrEditStore(
+                                  store: store,
                                   isEdit: true,
                                 ),
                               );
                             },
                             onDelete: () {
-                              //TODO: Delete with care, first need to check if he is already have any routes
-                              _showDeleteDialog(context, driver.id);
+                              _showDeleteDialog(context, store.id);
                             },
                           );
                         },
@@ -77,20 +76,20 @@ class ScreenDriver extends StatelessWidget {
       floatingActionButton: ElevatedButton.icon(
         icon: Icon(Icons.add, color: AppColors.onPrimary),
         onPressed: () {
-          Nav.push(context, ScreenAddOrEditDriver());
+          Nav.push(context, ScreenAddOrEditStore());
         },
-        label: Text('Add Driver'),
+        label: Text('Add Store'),
       ),
     );
   }
 
-  void _showDeleteDialog(BuildContext context, String driverId) {
+  void _showDeleteDialog(BuildContext context, String storeId) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
           title: const Text("Confirm Deletion"),
-          content: const Text("Are you sure you want to delete this driver?"),
+          content: const Text("Are you sure you want to delete this store?"),
           actions: [
             TextButton(
               onPressed: () {
@@ -101,9 +100,7 @@ class ScreenDriver extends StatelessWidget {
             TextButton(
               onPressed: () {
                 Navigator.pop(context); // Close dialog
-                context.read<DriverBloc>().add(
-                  DriverEvent.deleteDriver(driverId),
-                );
+                context.read<StoreBloc>().add(StoreEvent.deleteStore(storeId));
               },
               child: const Text("Delete", style: TextStyle(color: Colors.red)),
             ),

@@ -7,7 +7,7 @@ import 'package:dairy_management_app/core/constants/navigation.dart';
 import 'package:dairy_management_app/core/utils/pick_image.dart';
 import 'package:dairy_management_app/core/utils/validations.dart';
 import 'package:dairy_management_app/features/driver/models/driver_model.dart';
-import 'package:dairy_management_app/features/driver/view_model/bloc/bloc_driver/driver_bloc.dart';
+import 'package:dairy_management_app/features/driver/view_model/bloc_driver/driver_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -165,6 +165,9 @@ class ScreenAddOrEditDriver extends StatelessWidget {
                           context: context,
                           content: 'Profile pic is missing, try to add one',
                         );
+                      }
+                      if (!_formKey.currentState!.validate()) {
+                        return;
                       }
                       if (isEdit) {
                         context.read<DriverBloc>().add(
