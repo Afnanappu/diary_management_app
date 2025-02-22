@@ -10,8 +10,8 @@ part 'driver_state.dart';
 part 'driver_bloc.freezed.dart';
 
 class DriverBloc extends Bloc<DriverEvent, DriverState> {
-  final DriverServices _services = DriverServices();
-  DriverBloc() : super(DriverState.loading()) {
+  final DriverServices _services;
+  DriverBloc(this._services) : super(DriverState.loading()) {
     on<_FetchDrivers>(_onFetchDrivers);
     on<_AddDrivers>(_addDriver);
     on<_EditDriver>(_editDriver);
@@ -26,7 +26,6 @@ class DriverBloc extends Bloc<DriverEvent, DriverState> {
       password: event.password,
       phoneNo: event.phone,
       profile: event.profile!,
-      routes: event.routes,
     );
 
     try {
@@ -68,5 +67,10 @@ class DriverBloc extends Bloc<DriverEvent, DriverState> {
     } catch (e) {
       emit(DriverState.error(e.toString()));
     }
+  }
+
+  ///Get driver details by the given Id.
+  DriverModel getDriverDetails(String id) {
+    return _services.getDriverDetails(id)!;
   }
 }

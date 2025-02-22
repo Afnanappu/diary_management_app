@@ -1,47 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'driver_model.dart';
+part of 'route_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class DriverModelAdapter extends TypeAdapter<DriverModel> {
+class RouteModelAdapter extends TypeAdapter<RouteModel> {
   @override
-  final int typeId = 1;
+  final int typeId = 3;
 
   @override
-  DriverModel read(BinaryReader reader) {
+  RouteModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return DriverModel(
+    return RouteModel(
       id: fields[0] as String,
-      name: fields[1] as String,
-      email: fields[2] as String,
-      password: fields[3] as String,
-      phoneNo: fields[4] as String,
-      profile: fields[5] as String,
+      routeName: fields[1] as String,
+      driverId: fields[2] as String,
     );
   }
 
   @override
-  void write(BinaryWriter writer, DriverModel obj) {
+  void write(BinaryWriter writer, RouteModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(3)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
-      ..write(obj.name)
+      ..write(obj.routeName)
       ..writeByte(2)
-      ..write(obj.email)
-      ..writeByte(3)
-      ..write(obj.password)
-      ..writeByte(4)
-      ..write(obj.phoneNo)
-      ..writeByte(5)
-      ..write(obj.profile);
+      ..write(obj.driverId);
   }
 
   @override
@@ -50,7 +41,7 @@ class DriverModelAdapter extends TypeAdapter<DriverModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is DriverModelAdapter &&
+      other is RouteModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

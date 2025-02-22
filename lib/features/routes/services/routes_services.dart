@@ -1,13 +1,13 @@
 import 'dart:developer';
-
-import 'package:dairy_management_app/features/driver/models/driver_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import '../models/route_model.dart';
 
-class DriverServices {
-  final _box = Hive.box<DriverModel>('DriverBox');
+class RouteService {
+  final _box = Hive.box<RouteModel>('RouteBox');
 
-  ///Get all driver details
-  List<DriverModel> getAllDriver() {
+
+  /// Get all routes
+  List<RouteModel> getAllRoutes() {
     try {
       return _box.values.toList();
     } on HiveError catch (e, stack) {
@@ -19,10 +19,10 @@ class DriverServices {
     }
   }
 
-  ///Add or update driver details
-  Future<void> addOrUpdateDriver(DriverModel driver) async {
+  /// Add or update a route
+  Future<void> addOrUpdateRoute(RouteModel route) async {
     try {
-      await _box.put(driver.id, driver);
+      await _box.put(route.id, route);
     } on HiveError catch (e, stack) {
       log(e.message, stackTrace: stack);
       throw e.message;
@@ -32,8 +32,8 @@ class DriverServices {
     }
   }
 
-  ///Delete Driver with given id if exist
-  Future<void> deleteDriver(String id) async {
+  /// Delete a route by ID
+  Future<void> deleteRoute(String id) async {
     try {
       await _box.delete(id);
     } on HiveError catch (e, stack) {
@@ -45,8 +45,8 @@ class DriverServices {
     }
   }
 
-  ///Get Driver details with id if exist
-  DriverModel? getDriverDetails(String id) {
+  /// Get route details by ID
+  RouteModel? getRouteDetails(String id) {
     try {
       return _box.get(id);
     } on HiveError catch (e, stack) {

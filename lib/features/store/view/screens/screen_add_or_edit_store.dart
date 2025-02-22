@@ -25,7 +25,7 @@ class ScreenAddOrEditStore extends StatefulWidget {
       );
 
   @override
-  _ScreenAddOrEditStoreState createState() => _ScreenAddOrEditStoreState();
+  State<ScreenAddOrEditStore> createState() => _ScreenAddOrEditStoreState();
 }
 
 class _ScreenAddOrEditStoreState extends State<ScreenAddOrEditStore> {
@@ -59,10 +59,25 @@ class _ScreenAddOrEditStoreState extends State<ScreenAddOrEditStore> {
 
       if (placemarks.isNotEmpty) {
         Placemark place = placemarks.first;
+
+        String street = place.street?.isNotEmpty == true ? place.street! : "";
+        String subLocality =
+            place.subLocality?.isNotEmpty == true ? place.subLocality! : "";
+        String locality =
+            place.locality?.isNotEmpty == true ? place.locality! : "";
+
+        List<String> addressParts =
+            [
+              street,
+              subLocality,
+              locality,
+            ].where((part) => part.isNotEmpty).toList();
+
         setState(() {
-          address = "${place.street}, ${place.locality}, ${place.country}";
+          address = addressParts.join(", ");
         });
-        log('Address: $address');
+
+        log('Full Address: $address');
       }
     } catch (e) {
       log("Error getting address: $e");

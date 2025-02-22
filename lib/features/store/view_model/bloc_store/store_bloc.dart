@@ -9,9 +9,9 @@ part 'store_state.dart';
 part 'store_bloc.freezed.dart';
 
 class StoreBloc extends Bloc<StoreEvent, StoreState> {
-  final StoreServices _services = StoreServices();
+  final StoreServices _services;
 
-  StoreBloc() : super(StoreState.loading()) {
+  StoreBloc(this._services) : super(StoreState.loading()) {
     on<_FetchStores>(_onFetchStores);
     on<_AddStore>(_addStore);
     on<_EditStore>(_editStore);
@@ -29,6 +29,7 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
       isVisited: event.isVisited,
       visitedTime: event.visitedTime,
       address: event.address,
+      routeId: null,
     );
 
     try {
@@ -70,5 +71,9 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
     } catch (e) {
       emit(StoreState.error(e.toString()));
     }
+  }
+
+  List<StoreModel> getRouteStores(String routeId) {
+    return _services.getStoresForRoute(routeId);
   }
 }

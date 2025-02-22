@@ -2,7 +2,6 @@
 
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'driver_model.g.dart';
@@ -27,8 +26,7 @@ class DriverModel extends HiveObject {
   @HiveField(5)
   final String profile;
 
-  @HiveField(6)
-  final List<String> routes;
+
 
   DriverModel({
     required this.id,
@@ -37,7 +35,6 @@ class DriverModel extends HiveObject {
     required this.password,
     required this.phoneNo,
     required this.profile,
-    required this.routes,
   });
 
   DriverModel copyWith({
@@ -47,7 +44,6 @@ class DriverModel extends HiveObject {
     String? password,
     String? phoneNo,
     String? profile,
-    List<String>? routes,
   }) {
     return DriverModel(
       id: id ?? this.id,
@@ -56,7 +52,6 @@ class DriverModel extends HiveObject {
       password: password ?? this.password,
       phoneNo: phoneNo ?? this.phoneNo,
       profile: profile ?? this.profile,
-      routes: routes ?? this.routes,
     );
   }
 
@@ -68,7 +63,6 @@ class DriverModel extends HiveObject {
       'password': password,
       'phoneNo': phoneNo,
       'profile': profile,
-      'routes': routes,
     };
   }
 
@@ -80,37 +74,35 @@ class DriverModel extends HiveObject {
       password: map['password'] as String,
       phoneNo: map['phoneNo'] as String,
       profile: map['profile'] as String,
-      routes: List<String>.from((map['routes'] as List<String>)),
     );
   }
 
   @override
   String toString() {
-    return 'DriverModel(id: $id, name: $name, email: $email, password: $password, phoneNo: $phoneNo, profile: $profile, routes: $routes)';
+    return 'DriverModel(id: $id, name: $name, email: $email, password: $password, phoneNo: $phoneNo, profile: $profile)';
   }
 
   @override
   bool operator ==(covariant DriverModel other) {
     if (identical(this, other)) return true;
-
-    return other.id == id &&
-        other.name == name &&
-        other.email == email &&
-        other.password == password &&
-        other.phoneNo == phoneNo &&
-        other.profile == profile &&
-        listEquals(other.routes, routes);
+  
+    return 
+      other.id == id &&
+      other.name == name &&
+      other.email == email &&
+      other.password == password &&
+      other.phoneNo == phoneNo &&
+      other.profile == profile;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-        name.hashCode ^
-        email.hashCode ^
-        password.hashCode ^
-        phoneNo.hashCode ^
-        profile.hashCode ^
-        routes.hashCode;
+      name.hashCode ^
+      email.hashCode ^
+      password.hashCode ^
+      phoneNo.hashCode ^
+      profile.hashCode;
   }
 
   String toJson() => json.encode(toMap());

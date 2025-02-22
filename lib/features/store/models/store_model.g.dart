@@ -26,13 +26,14 @@ class StoreModelAdapter extends TypeAdapter<StoreModel> {
       isVisited: fields[6] as bool,
       visitedTime: fields[7] as DateTime,
       address: fields[8] as String,
+      routeId: fields[9] as String?,
     );
   }
 
   @override
   void write(BinaryWriter writer, StoreModel obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -50,7 +51,9 @@ class StoreModelAdapter extends TypeAdapter<StoreModel> {
       ..writeByte(7)
       ..write(obj.visitedTime)
       ..writeByte(8)
-      ..write(obj.address);
+      ..write(obj.address)
+      ..writeByte(9)
+      ..write(obj.routeId);
   }
 
   @override

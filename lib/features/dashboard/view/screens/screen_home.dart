@@ -2,6 +2,7 @@ import 'package:dairy_management_app/core/components/custom_app_bar.dart';
 import 'package:dairy_management_app/core/constants/navigation.dart';
 import 'package:dairy_management_app/features/dashboard/view/components/dashboard_grid_card.dart';
 import 'package:dairy_management_app/features/driver/view/screens/screen_driver.dart';
+import 'package:dairy_management_app/features/routes/view/screens/screen_routes.dart';
 import 'package:dairy_management_app/features/store/view/screens/screen_store.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,13 @@ class ScreenHome extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                DashboardGridCard(icon: Icons.route_outlined, title: 'Routes'),
+                DashboardGridCard(
+                  icon: Icons.route_outlined,
+                  title: 'Routes',
+                  onTap: () {
+                    Nav.push(context, ScreenRoute());
+                  },
+                ),
                 DashboardGridCard(
                   icon: Icons.people_alt_outlined,
                   title: 'Drivers',
