@@ -44,24 +44,6 @@ class _ScreenAddOrEditRouteState extends State<ScreenAddOrEditRoute> {
     selectedStores = widget.selectedStores?.toSet() ?? {};
 
     _nameController.text = widget.route?.routeName ?? '';
-
-    //Checking that if data is loaded or not.
-    final isDriverLoaded = context.read<DriverBloc>().state.maybeWhen(
-      orElse: () => false,
-      loaded: (_) => true,
-    );
-    final isStoreLoaded = context.read<StoreBloc>().state.maybeWhen(
-      orElse: () => false,
-      loaded: (_) => true,
-    );
-
-    //Load the data if not loaded previously.
-    if (!isDriverLoaded) {
-      context.read<DriverBloc>().add(DriverEvent.fetchDrivers());
-    }
-    if (!isStoreLoaded) {
-      context.read<StoreBloc>().add(StoreEvent.fetchStores());
-    }
   }
 
   @override
@@ -81,7 +63,7 @@ class _ScreenAddOrEditRouteState extends State<ScreenAddOrEditRoute> {
               icon: Icons.route_outlined,
             ),
             const SizedBox(height: 20),
- 
+
             BlocBuilder<DriverBloc, DriverState>(
               builder: (context, state) {
                 return state.maybeWhen(

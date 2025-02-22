@@ -1,17 +1,23 @@
 import 'package:dairy_management_app/core/components/custom_app_bar.dart';
 import 'package:dairy_management_app/core/constants/navigation.dart';
 import 'package:dairy_management_app/features/dashboard/view/components/dashboard_grid_card.dart';
+import 'package:dairy_management_app/features/dashboard/view/widgets/dashboard_summary.dart';
 import 'package:dairy_management_app/features/driver/view/screens/screen_driver.dart';
+import 'package:dairy_management_app/features/driver/view_model/bloc_driver/driver_bloc.dart';
 import 'package:dairy_management_app/features/routes/view/screens/screen_routes.dart';
+import 'package:dairy_management_app/features/routes/view_model/bloc_route/route_bloc.dart';
 import 'package:dairy_management_app/features/store/view/screens/screen_store.dart';
+import 'package:dairy_management_app/features/store/view_model/bloc_store/store_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ScreenHome extends StatelessWidget {
-  const ScreenHome({super.key});
+class ScreenDashboard extends StatelessWidget {
+  const ScreenDashboard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final cardHeight = AppScreenSize.height;
+    //Checking that if data is loaded or not.
+    _loadData(context);
 
     return Scaffold(
       appBar: CustomAppBar(title: 'Dashboard'),
@@ -20,7 +26,7 @@ class ScreenHome extends StatelessWidget {
         child: ListView(
           shrinkWrap: true,
           children: [
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -47,9 +53,42 @@ class ScreenHome extends StatelessWidget {
                 ),
               ],
             ),
+
+            const SizedBox(height: 20),
+
+            DashboardSummary(),
+
+            const SizedBox(height: 20),
           ],
         ),
       ),
     );
+  }
+
+  void _loadData(BuildContext context) {
+    //Checking that if data is loaded or not.
+    final isDriverLoaded = context.read<DriverBloc>().state.maybeWhen(
+      orElse: () => false,
+      loaded: (_) => true,
+    );
+    final isStoreLoaded = context.read<StoreBloc>().state.maybeWhen(
+      orElse: () => false,
+      loaded: (_) => true,
+    );
+    final isRouteLoaded = context.read<RouteBloc>().state.maybeWhen(
+      orElse: () => false,
+      loaded: (_) => true,
+    );
+
+    //Load the data if not loaded previously.
+    if (!isDriverLoaded) {
+      context.read<DriverBloc>().add(DriverEvent.fetchDrivers());
+    }
+    if (!isStoreLoaded) {
+      context.read<StoreBloc>().add(StoreEvent.fetchStores());
+    }
+    if (!isRouteLoaded) {
+      context.read<RouteBloc>().add(RouteEvent.fetchRoutes());
+    }
   }
 }
