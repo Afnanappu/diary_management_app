@@ -90,7 +90,7 @@ class DashboardGridCard extends StatelessWidget {
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.w600,
-                color: AppColors.primaryDark,
+                color: AppColors.primary,
               ),
             ),
           ],

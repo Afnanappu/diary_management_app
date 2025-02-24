@@ -2,16 +2,22 @@ import 'dart:ui';
 
 // class AppColors {
 //   static const Color primary = Color(0xFF04C4B4);
-//   // static const Color primaryDark = Color(0xFF028A82);
+//   // static const Color primary = Color(0xFF028A82);
 //   static const Color onPrimary = Color(0xFFFFFFFF);
 //   static const Color primaryBackground = Color(0xFFDCF4EC);
 // }
 
 class AppColors {
-  static const Color primary = Color(0xFF04C4B4); // Teal (Main Theme Color)
-  static const Color primaryDark = Color(
-    0xFF028A82,
-  ); // Darker shade for contrast
+  // static const Color primary = Color(0xFF04C4B4); // Teal (Main Theme Color)
+  static const Color primary = Color.fromARGB(
+    255,
+    2,
+    169,
+    158,
+  ); // Teal (Main Theme Color)
+  // static const Color primary = Color(
+  //   0xFF028A82,
+  // ); // Darker shade for contrast
   static const Color onPrimary = Color(
     0xFFFFFFFF,
   ); // Text/icons on primary color

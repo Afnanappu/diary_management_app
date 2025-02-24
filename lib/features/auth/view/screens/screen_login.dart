@@ -24,7 +24,7 @@ class _LoginScreenState extends State<LoginScreen> {
               clipper: WaveClipperTwo(),
               child: Container(
                 height: 250,
-                decoration: BoxDecoration(color: AppColors.primaryDark),
+                decoration: BoxDecoration(color: AppColors.primary),
                 child: Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -81,7 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               Switch(
                                 value: isAdmin,
-                                activeColor: AppColors.primaryDark,
+                                activeColor: AppColors.primary,
                                 onChanged: (value) {
                                   setState(() {
                                     isAdmin = value;
@@ -97,7 +97,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelText: "Email",
                               prefixIcon: Icon(
                                 Icons.email,
-                                color: AppColors.primaryDark,
+                                color: AppColors.primary,
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
@@ -112,7 +112,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               labelText: "Password",
                               prefixIcon: Icon(
                                 Icons.lock,
-                                color: AppColors.primaryDark,
+                                color: AppColors.primary,
                               ),
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12),
@@ -124,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.primaryDark,
+                              backgroundColor: AppColors.primary,
                               padding: EdgeInsets.symmetric(
                                 horizontal: 40,
                                 vertical: 12,
@@ -146,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {},
                             child: Text(
                               "Forgot Password?",
-                              style: TextStyle(color: AppColors.primaryDark),
+                              style: TextStyle(color: AppColors.primary),
                             ),
                           ),
                         ],

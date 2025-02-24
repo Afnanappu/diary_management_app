@@ -1,5 +1,6 @@
 import 'package:dairy_management_app/core/components/custom_app_bar.dart';
 import 'package:dairy_management_app/core/constants/navigation.dart';
+import 'package:dairy_management_app/features/auth/view/screens/screen_landing.dart';
 import 'package:dairy_management_app/features/auth/view/screens/screen_login.dart';
 import 'package:dairy_management_app/features/dashboard/view/components/dashboard_grid_card.dart';
 import 'package:dairy_management_app/features/dashboard/view/widgets/dashboard_summary.dart';
@@ -36,6 +37,12 @@ class ScreenDashboard extends StatelessWidget {
               Nav.push(context, ScreenUserSide());
             },
             icon: Icon(Icons.accessible_forward_outlined),
+          ),
+          IconButton(
+            onPressed: () {
+              Nav.push(context, LandingScreen());
+            },
+            icon: Icon(Icons.add_a_photo),
           ),
         ],
       ),
@@ -108,7 +115,7 @@ class ScreenDashboard extends StatelessWidget {
     if (!isRouteLoaded) {
       context.read<RouteBloc>().add(RouteEvent.fetchRoutes());
     }
-    
+
     context.read<RouteBloc>().updateStoreDaily();
   }
 }

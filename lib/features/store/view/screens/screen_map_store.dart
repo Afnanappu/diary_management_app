@@ -74,7 +74,6 @@ class _SelectLocationScreenState extends State<ScreenMapStore> {
 
     setState(() {
       _currentLocation = LatLng(position.latitude, position.longitude);
-      // _selectedLocation = _currentLocation;
     });
   }
 
