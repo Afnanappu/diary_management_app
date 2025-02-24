@@ -36,7 +36,7 @@ class StoreModel {
 
   @HiveField(9) // Added field
   String? routeId;
-  
+
   StoreModel({
     required this.id,
     required this.name,
@@ -100,7 +100,9 @@ class StoreModel {
       lat: map['lat'] as double,
       long: map['long'] as double,
       isVisited: map['isVisited'] as bool,
-      visitedTime: DateTime.fromMillisecondsSinceEpoch(map['visitedTime'] as int),
+      visitedTime: DateTime.fromMillisecondsSinceEpoch(
+        map['visitedTime'] as int,
+      ),
       address: map['address'] as String,
       routeId: map['routeId'] != null ? map['routeId'] as String : null,
     );
@@ -119,31 +121,30 @@ class StoreModel {
   @override
   bool operator ==(covariant StoreModel other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.id == id &&
-      other.name == name &&
-      other.contact == contact &&
-      other.image == image &&
-      other.lat == lat &&
-      other.long == long &&
-      other.isVisited == isVisited &&
-      other.visitedTime == visitedTime &&
-      other.address == address &&
-      other.routeId == routeId;
+
+    return other.id == id &&
+        other.name == name &&
+        other.contact == contact &&
+        other.image == image &&
+        other.lat == lat &&
+        other.long == long &&
+        other.isVisited == isVisited &&
+        other.visitedTime == visitedTime &&
+        other.address == address &&
+        other.routeId == routeId;
   }
 
   @override
   int get hashCode {
     return id.hashCode ^
-      name.hashCode ^
-      contact.hashCode ^
-      image.hashCode ^
-      lat.hashCode ^
-      long.hashCode ^
-      isVisited.hashCode ^
-      visitedTime.hashCode ^
-      address.hashCode ^
-      routeId.hashCode;
+        name.hashCode ^
+        contact.hashCode ^
+        image.hashCode ^
+        lat.hashCode ^
+        long.hashCode ^
+        isVisited.hashCode ^
+        visitedTime.hashCode ^
+        address.hashCode ^
+        routeId.hashCode;
   }
 }

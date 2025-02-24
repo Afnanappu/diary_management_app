@@ -110,22 +110,25 @@ class _ScreenAddOrEditRouteState extends State<ScreenAddOrEditRoute> {
                               (element) => element.routeId == null,
                             );
                     return Expanded(
-                      child: ListView(
-                        children:
-                            list.map((store) {
-                              return CheckboxListTile(
-                                title: Text(store.name),
-                                value: selectedStores.contains(store),
-                                onChanged: (isChecked) {
-                                  setState(() {
-                                    isChecked == true
-                                        ? selectedStores.add(store)
-                                        : selectedStores.remove(store);
-                                  });
-                                },
-                              );
-                            }).toList(),
-                      ),
+                      child:
+                          list.isEmpty
+                              ? Center(child: Text('No store available'))
+                              : ListView(
+                                children:
+                                    list.map((store) {
+                                      return CheckboxListTile(
+                                        title: Text(store.name),
+                                        value: selectedStores.contains(store),
+                                        onChanged: (isChecked) {
+                                          setState(() {
+                                            isChecked == true
+                                                ? selectedStores.add(store)
+                                                : selectedStores.remove(store);
+                                          });
+                                        },
+                                      );
+                                    }).toList(),
+                              ),
                     );
                   },
                 );

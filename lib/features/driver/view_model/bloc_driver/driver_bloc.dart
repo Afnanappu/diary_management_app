@@ -73,4 +73,9 @@ class DriverBloc extends Bloc<DriverEvent, DriverState> {
   DriverModel getDriverDetails(String id) {
     return _services.getDriverDetails(id)!;
   }
+
+  ///Get driver details by the given Id.
+  List<DriverModel> getDriverStores(String driverId) {
+    return _services.getDriverStores(driverId);
+  }
 }

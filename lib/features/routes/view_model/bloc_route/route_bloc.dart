@@ -143,4 +143,17 @@ class RouteBloc extends Bloc<RouteEvent, RouteState> {
       emit(RouteState.error(e.toString()));
     }
   }
+
+  Future<void> updateStoreDaily() async {
+    final list = _storeServices.getAllStores();
+    final updatedStores = {
+      for (var store in list)
+        if (store.visitedTime.day != DateTime.now().day)
+          store.id: store.copyWith(isVisited: false),
+    };
+    if (updatedStores.isNotEmpty) {
+      await _storeServices.addOrUpdateStores(updatedStores);
+      log('${list.length} stores updated for daily visit');
+    }
+  }
 }

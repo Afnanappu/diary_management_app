@@ -57,4 +57,8 @@ class DriverServices {
       throw e.toString();
     }
   }
+
+  List<DriverModel> getDriverStores(String driverId) {
+    return _box.values.where((element) => element.id == driverId).toList();
+  }
 }

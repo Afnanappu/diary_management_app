@@ -1,5 +1,6 @@
 import 'package:dairy_management_app/core/components/custom_app_bar.dart';
 import 'package:dairy_management_app/core/constants/navigation.dart';
+import 'package:dairy_management_app/features/auth/view/screens/screen_login.dart';
 import 'package:dairy_management_app/features/dashboard/view/components/dashboard_grid_card.dart';
 import 'package:dairy_management_app/features/dashboard/view/widgets/dashboard_summary.dart';
 import 'package:dairy_management_app/features/driver/view/screens/screen_driver.dart';
@@ -8,6 +9,7 @@ import 'package:dairy_management_app/features/routes/view/screens/screen_routes.
 import 'package:dairy_management_app/features/routes/view_model/bloc_route/route_bloc.dart';
 import 'package:dairy_management_app/features/store/view/screens/screen_store.dart';
 import 'package:dairy_management_app/features/store/view_model/bloc_store/store_bloc.dart';
+import 'package:dairy_management_app/features/user_side/view/screens/screen_user_side.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +22,23 @@ class ScreenDashboard extends StatelessWidget {
     _loadData(context);
 
     return Scaffold(
-      appBar: CustomAppBar(title: 'Dashboard'),
+      appBar: CustomAppBar(
+        title: 'Dashboard',
+        actions: [
+          IconButton(
+            onPressed: () {
+              Nav.push(context, LoginScreen());
+            },
+            icon: Icon(Icons.dnd_forwardslash_outlined),
+          ),
+          IconButton(
+            onPressed: () {
+              Nav.push(context, ScreenUserSide());
+            },
+            icon: Icon(Icons.accessible_forward_outlined),
+          ),
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),
         child: ListView(
@@ -90,5 +108,7 @@ class ScreenDashboard extends StatelessWidget {
     if (!isRouteLoaded) {
       context.read<RouteBloc>().add(RouteEvent.fetchRoutes());
     }
+    
+    context.read<RouteBloc>().updateStoreDaily();
   }
 }

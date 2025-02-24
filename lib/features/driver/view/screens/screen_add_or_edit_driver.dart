@@ -179,7 +179,6 @@ class ScreenAddOrEditDriver extends StatelessWidget {
                               password: _passwordController.text.trim(),
                               phoneNo: _phoneController.text.trim(),
                               profile: profileImage?.path ?? driver!.profile,
-                             
                             ),
                           ),
                         );

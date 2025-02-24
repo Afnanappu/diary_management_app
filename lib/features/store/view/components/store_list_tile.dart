@@ -20,7 +20,7 @@ class StoreListTile extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       elevation: 4,
-      shadowColor: Colors.brown.withOpacity(0.2),
+      shadowColor: Colors.brown.withValues(alpha: 0.2),
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       child: ListTile(
         contentPadding: const EdgeInsets.all(12),

@@ -17,9 +17,6 @@ class ScreenRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<RouteBloc>().add(RouteEvent.fetchRoutes());
-    });
     return Scaffold(
       appBar: CustomAppBar(title: 'Route Management'),
       body: Padding(

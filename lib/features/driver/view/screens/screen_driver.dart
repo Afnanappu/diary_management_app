@@ -14,9 +14,9 @@ class ScreenDriver extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<DriverBloc>().add(DriverEvent.fetchDrivers());
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   context.read<DriverBloc>().add(DriverEvent.fetchDrivers());
+    // });
     return Scaffold(
       appBar: CustomAppBar(title: 'Driver Management'),
       body: Padding(

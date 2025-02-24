@@ -14,9 +14,6 @@ class ScreenStore extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      context.read<StoreBloc>().add(StoreEvent.fetchStores());
-    });
     return Scaffold(
       appBar: CustomAppBar(title: 'Store Management'),
       body: Padding(

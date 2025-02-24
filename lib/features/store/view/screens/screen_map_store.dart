@@ -25,6 +25,7 @@ class _SelectLocationScreenState extends State<ScreenMapStore> {
     final serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       bool? openSettings = await showDialog(
+        // ignore: use_build_context_synchronously
         context: context,
         builder:
             (context) => AlertDialog(

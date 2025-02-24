@@ -76,4 +76,12 @@ class StoreBloc extends Bloc<StoreEvent, StoreState> {
   List<StoreModel> getRouteStores(String routeId) {
     return _services.getStoresForRoute(routeId);
   }
+
+  List<StoreModel> sortStoresByDistance(
+    List<StoreModel> stores,
+    double userLat,
+    double userLon,
+  ) {
+    return _services.sortStoresByDistance(stores, userLat, userLon);
+  }
 }
