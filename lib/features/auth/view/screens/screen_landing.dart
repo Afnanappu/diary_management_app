@@ -23,7 +23,7 @@ class LandingScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.local_dining, size: 80, color: Colors.white),
+                  Image.asset('assets/van_icon_w.png', scale: 1.5),
                   SizedBox(height: 10),
                   Text(
                     "Dairy Van",

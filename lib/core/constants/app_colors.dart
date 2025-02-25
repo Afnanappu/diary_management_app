@@ -9,12 +9,7 @@ import 'dart:ui';
 
 class AppColors {
   // static const Color primary = Color(0xFF04C4B4); // Teal (Main Theme Color)
-  static const Color primary = Color.fromARGB(
-    255,
-    2,
-    169,
-    158,
-  ); // Teal (Main Theme Color)
+  static const Color primary = Color(0xFF02A99E); // Teal (Main Theme Color)
   // static const Color primary = Color(
   //   0xFF028A82,
   // ); // Darker shade for contrast
