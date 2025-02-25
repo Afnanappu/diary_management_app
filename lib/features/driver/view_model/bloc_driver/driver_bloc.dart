@@ -78,4 +78,9 @@ class DriverBloc extends Bloc<DriverEvent, DriverState> {
   List<DriverModel> getDriverStores(String driverId) {
     return _services.getDriverStores(driverId);
   }
+
+  ///Login verification
+  (bool, DriverModel?) checkLogin(String email, String password) {
+    return _services.checkLogin(email, password);
+  }
 }

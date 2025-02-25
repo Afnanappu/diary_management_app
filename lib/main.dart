@@ -1,6 +1,9 @@
 import 'package:dairy_management_app/core/constants/app_screen_size.dart';
 import 'package:dairy_management_app/core/constants/app_theme.dart';
+import 'package:dairy_management_app/core/services/app_services.dart';
 import 'package:dairy_management_app/core/services/hive_services.dart';
+import 'package:dairy_management_app/features/auth/view/screens/screen_landing.dart';
+import 'package:dairy_management_app/features/auth/view/screens/screen_login.dart';
 import 'package:dairy_management_app/features/dashboard/view/screens/screen_dashboard.dart';
 import 'package:dairy_management_app/features/driver/services/driver_services.dart';
 import 'package:dairy_management_app/features/driver/view_model/bloc_driver/driver_bloc.dart';
@@ -32,6 +35,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(create: (context) => StoreServices()),
         RepositoryProvider(create: (context) => RouteService()),
         RepositoryProvider(create: (context) => DriverServices()),
+        // RepositoryProvider(create: (context) => AppServices()),
       ],
 
       child: MultiBlocProvider(
@@ -56,7 +60,12 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           theme: AppTheme.lightTheme,
           debugShowCheckedModeBanner: false,
-          home: const ScreenDashboard(),
+          home:
+              AppServices.isSawLanding
+                  ? AppServices.isLogin
+                      ? const ScreenDashboard()
+                      : const LoginScreen()
+                  : const LandingScreen(),
         ),
       ),
     );

@@ -5,7 +5,7 @@ class CustomTextField extends StatelessWidget {
   final String labelText;
   final IconData icon;
   final TextInputType? keyboardType;
-  final String? Function(String?)? validator;
+  final String? Function(String? value)? validator;
   final bool obscureText;
   final Widget? suffixIcon;
   final int? maxLength;

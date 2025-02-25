@@ -24,5 +24,6 @@ class HiveServices {
     await Hive.openBox<DriverModel>('DriverBox'); //Open driver box
     await Hive.openBox<StoreModel>('StoreBox'); // Open Store Box
     await Hive.openBox<RouteModel>('RouteBox'); // Open Route Box
+    await Hive.openBox('AppBox'); // Open Route Box
   }
 }

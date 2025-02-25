@@ -1,6 +1,6 @@
 import 'package:dairy_management_app/core/components/custom_app_bar.dart';
 import 'package:dairy_management_app/core/constants/navigation.dart';
-import 'package:dairy_management_app/features/auth/view/screens/screen_landing.dart';
+import 'package:dairy_management_app/core/services/app_services.dart';
 import 'package:dairy_management_app/features/auth/view/screens/screen_login.dart';
 import 'package:dairy_management_app/features/dashboard/view/components/dashboard_grid_card.dart';
 import 'package:dairy_management_app/features/dashboard/view/widgets/dashboard_summary.dart';
@@ -10,7 +10,6 @@ import 'package:dairy_management_app/features/routes/view/screens/screen_routes.
 import 'package:dairy_management_app/features/routes/view_model/bloc_route/route_bloc.dart';
 import 'package:dairy_management_app/features/store/view/screens/screen_store.dart';
 import 'package:dairy_management_app/features/store/view_model/bloc_store/store_bloc.dart';
-import 'package:dairy_management_app/features/user_side/view/screens/screen_user_side.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,22 +27,23 @@ class ScreenDashboard extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Nav.push(context, LoginScreen());
+              Nav.pushReplace(context, LoginScreen());
+              AppServices.updateLogin = false;
             },
-            icon: Icon(Icons.dnd_forwardslash_outlined),
+            icon: Icon(Icons.logout),
           ),
-          IconButton(
-            onPressed: () {
-              Nav.push(context, ScreenUserSide());
-            },
-            icon: Icon(Icons.accessible_forward_outlined),
-          ),
-          IconButton(
-            onPressed: () {
-              Nav.push(context, LandingScreen());
-            },
-            icon: Icon(Icons.add_a_photo),
-          ),
+          // IconButton(
+          //   onPressed: () {
+          //     Nav.push(context, ScreenUserSide());
+          //   },
+          //   icon: Icon(Icons.accessible_forward_outlined),
+          // ),
+          // IconButton(
+          //   onPressed: () {
+          //     Nav.push(context, LandingScreen());
+          //   },
+          //   icon: Icon(Icons.add_a_photo),
+          // ),
         ],
       ),
       body: Padding(

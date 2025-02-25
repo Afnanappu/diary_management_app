@@ -1,4 +1,6 @@
+import 'package:dairy_management_app/core/constants/app_screen_size.dart';
 import 'package:dairy_management_app/core/constants/navigation.dart';
+import 'package:dairy_management_app/core/services/app_services.dart';
 import 'package:dairy_management_app/features/auth/view/screens/screen_login.dart';
 import 'package:flutter/material.dart';
 import 'package:dairy_management_app/core/constants/app_colors.dart';
@@ -24,7 +26,7 @@ class LandingScreen extends StatelessWidget {
                   Icon(Icons.local_dining, size: 80, color: Colors.white),
                   SizedBox(height: 10),
                   Text(
-                    "Dairy Management",
+                    "Dairy Van",
                     style: TextStyle(
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
@@ -39,7 +41,7 @@ class LandingScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.5),
+                SizedBox(height: AppScreenSize.height * 0.5),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24.0),
                   child: Text(
@@ -57,6 +59,9 @@ class LandingScreen extends StatelessWidget {
                   onPressed: () {
                     // Navigate to login screen
                     Nav.push(context, LoginScreen());
+
+                    //Update the app service to set the landing is watched
+                    AppServices.updateSawLanding = true;
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.primary,

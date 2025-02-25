@@ -1,5 +1,9 @@
 import 'dart:convert';
 
+import 'package:dairy_management_app/core/constants/navigation.dart';
+import 'package:dairy_management_app/core/services/app_services.dart';
+import 'package:dairy_management_app/features/auth/view/screens/screen_login.dart';
+import 'package:dairy_management_app/features/driver/models/driver_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -10,14 +14,14 @@ import 'package:latlong2/latlong.dart';
 import 'package:dairy_management_app/core/components/custom_snack_bar.dart';
 import 'package:dairy_management_app/core/constants/app_colors.dart';
 import 'package:dairy_management_app/core/constants/app_screen_size.dart';
-import 'package:dairy_management_app/features/driver/view_model/bloc_driver/driver_bloc.dart';
 import 'package:dairy_management_app/features/routes/view_model/bloc_route/route_bloc.dart';
 import 'package:dairy_management_app/features/store/models/store_model.dart';
 import 'package:dairy_management_app/features/store/view_model/bloc_store/store_bloc.dart';
 import 'package:dairy_management_app/features/user_side/view/components/user_side_list_tile.dart';
 
 class ScreenUserSide extends StatefulWidget {
-  const ScreenUserSide({super.key});
+  const ScreenUserSide({super.key, required this.model});
+  final DriverModel model;
 
   @override
   State<ScreenUserSide> createState() => _ScreenUserSideState();
@@ -96,7 +100,7 @@ class _ScreenUserSideState extends State<ScreenUserSide> {
   void _loadBlocs() {
     context.read<StoreBloc>().add(StoreEvent.fetchStores());
     context.read<RouteBloc>().add(RouteEvent.fetchRoutes());
-    context.read<DriverBloc>().add(DriverEvent.fetchDrivers());
+    // context.read<DriverBloc>().add(DriverEvent.fetchDrivers());
   }
 
   /// Fetches and draws the polyline route between the user and a store
@@ -153,16 +157,27 @@ class _ScreenUserSideState extends State<ScreenUserSide> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("User Routes")),
+      appBar: AppBar(
+        title: const Text("User Routes"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Nav.pushReplace(context, LoginScreen());
+              
+              AppServices.updateLogin = false;
+            },
+            icon: Icon(Icons.logout),
+          ),
+        ],
+      ),
       body: BlocBuilder<RouteBloc, RouteState>(
         builder: (context, state) {
           return state.maybeWhen(
             loading: () => const Center(child: CircularProgressIndicator()),
             loaded: (routeList) {
-              final selectedRoute = routeList.firstOrNull;
-              if (selectedRoute == null) {
-                return const Center(child: Text("No route found"));
-              }
+              final selectedRoute = routeList.firstWhere(
+                (element) => element.driverId == widget.model.id,
+              );
 
               return _buildRouteScreen(selectedRoute.id);
             },

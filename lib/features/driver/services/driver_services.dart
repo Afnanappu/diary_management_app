@@ -61,4 +61,14 @@ class DriverServices {
   List<DriverModel> getDriverStores(String driverId) {
     return _box.values.where((element) => element.id == driverId).toList();
   }
+
+  ///check login
+  (bool, DriverModel?) checkLogin(String email, String password) {
+    for (var element in _box.values) {
+      if (element.email == email && element.password == password) {
+        return (true, element);
+      }
+    }
+    return (false, null);
+  }
 }

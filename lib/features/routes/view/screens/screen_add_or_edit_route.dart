@@ -30,7 +30,6 @@ class ScreenAddOrEditRoute extends StatefulWidget {
   State<ScreenAddOrEditRoute> createState() => _ScreenAddOrEditRouteState();
 }
 
-//TODO: change into stateless
 class _ScreenAddOrEditRouteState extends State<ScreenAddOrEditRoute> {
   DriverModel? selectedDriver;
   Set<StoreModel> selectedStores = {};
@@ -171,6 +170,7 @@ class _ScreenAddOrEditRouteState extends State<ScreenAddOrEditRoute> {
           ],
         ),
       ),
+      resizeToAvoidBottomInset: false,
     );
   }
 }

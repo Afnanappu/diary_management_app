@@ -95,7 +95,6 @@ class ScreenRoute extends StatelessWidget {
         },
         label: const Text('Add Route'),
       ),
-      resizeToAvoidBottomInset: false,persistentFooterButtons: [],
     );
   }
 
