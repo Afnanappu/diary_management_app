@@ -32,18 +32,6 @@ class ScreenDashboard extends StatelessWidget {
             },
             icon: Icon(Icons.logout),
           ),
-          // IconButton(
-          //   onPressed: () {
-          //     Nav.push(context, ScreenUserSide());
-          //   },
-          //   icon: Icon(Icons.accessible_forward_outlined),
-          // ),
-          // IconButton(
-          //   onPressed: () {
-          //     Nav.push(context, LandingScreen());
-          //   },
-          //   icon: Icon(Icons.add_a_photo),
-          // ),
         ],
       ),
       body: Padding(

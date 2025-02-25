@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:dairy_management_app/core/constants/navigation.dart';
@@ -43,7 +45,6 @@ class _ScreenUserSideState extends State<ScreenUserSide> {
     final serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
       bool? openSettings = await showDialog(
-        // ignore: use_build_context_synchronously
         context: context,
         builder:
             (context) => AlertDialog(
@@ -163,7 +164,7 @@ class _ScreenUserSideState extends State<ScreenUserSide> {
           IconButton(
             onPressed: () {
               Nav.pushReplace(context, LoginScreen());
-              
+
               AppServices.updateLogin = false;
             },
             icon: Icon(Icons.logout),

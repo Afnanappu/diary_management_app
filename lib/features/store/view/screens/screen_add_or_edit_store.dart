@@ -162,116 +162,114 @@ class _ScreenAddOrEditStoreState extends State<ScreenAddOrEditStore> {
                   const SizedBox(height: 20),
 
                   // Select Address Section
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Select Store Location",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      InkWell(
-                        onTap: () async {
-                          final result = await Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => ScreenMapStore(),
-                            ),
-                          );
-
-                          if (result != null && result is LatLng) {
-                            setState(() {
-                              location = result;
-                              getAddressFromLatLng(location!);
-                            });
-                            log(
-                              'Location selected: $location, Address: $address',
-                            );
-                          }
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(15),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.black26),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Row(
-                            children: [
-                              Icon(Icons.location_on, color: Colors.red),
-                              const SizedBox(width: 10),
-                              Expanded(
-                                child: Text(
-                                  address ?? "Tap to select location",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color:
-                                        address != null
-                                            ? Colors.black
-                                            : Colors.black54,
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  _selectAddressSection(context),
 
                   const SizedBox(height: 20),
-                  SaveButton(
-                    onPressed: () {
-                      if (location == null || address == null) {
-                        showCustomSnackBar(
-                          context: context,
-                          content: 'Please select a store location',
-                        );
-                        return;
-                      }
-                      if (!_formKey.currentState!.validate()) {
-                        return;
-                      }
-                      if (widget.isEdit) {
-                        context.read<StoreBloc>().add(
-                          StoreEvent.editStore(
-                            widget.store!.copyWith(
-                              name: _nameController.text.trim(),
-                              contact: _contactController.text.trim(),
-                              image: storeImage?.path ?? widget.store?.image,
-                              lat: location!.latitude,
-                              long: location!.longitude,
-                              address: address!,
-                            ),
-                          ),
-                        );
-                      } else {
-                        context.read<StoreBloc>().add(
-                          StoreEvent.addStore(
-                            id: null,
-                            name: _nameController.text.trim(),
-                            contact: _contactController.text.trim(),
-                            image: storeImage?.path,
-                            lat: location!.latitude,
-                            long: location!.longitude,
-                            address: address!,
-                            isVisited: false,
-                            visitedTime: DateTime.now(),
-                          ),
-                        );
-                      }
-                    },
-                  ),
+                  _saveButton(context),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  Column _selectAddressSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Select Store Location",
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: 10),
+        InkWell(
+          onTap: () async {
+            final result = await Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => ScreenMapStore()),
+            );
+
+            if (result != null && result is LatLng) {
+              setState(() {
+                location = result;
+                getAddressFromLatLng(location!);
+              });
+              log('Location selected: $location, Address: $address');
+            }
+          },
+          child: Container(
+            padding: const EdgeInsets.all(15),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black26),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Row(
+              children: [
+                Icon(Icons.location_on, color: Colors.red),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    address ?? "Tap to select location",
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: address != null ? Colors.black : Colors.black54,
+                    ),
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  SaveButton _saveButton(BuildContext context) {
+    return SaveButton(
+      onPressed: () {
+        if (location == null || address == null) {
+          showCustomSnackBar(
+            context: context,
+            content: 'Please select a store location',
+          );
+          return;
+        }
+        if (!_formKey.currentState!.validate()) {
+          return;
+        }
+        if (widget.isEdit) {
+          context.read<StoreBloc>().add(
+            StoreEvent.editStore(
+              widget.store!.copyWith(
+                name: _nameController.text.trim(),
+                contact: _contactController.text.trim(),
+                image: storeImage?.path ?? widget.store?.image,
+                lat: location!.latitude,
+                long: location!.longitude,
+                address: address!,
+              ),
+            ),
+          );
+        } else {
+          context.read<StoreBloc>().add(
+            StoreEvent.addStore(
+              id: null,
+              name: _nameController.text.trim(),
+              contact: _contactController.text.trim(),
+              image: storeImage?.path,
+              lat: location!.latitude,
+              long: location!.longitude,
+              address: address!,
+              isVisited: false,
+              visitedTime: DateTime.now(),
+            ),
+          );
+        }
+      },
     );
   }
 }

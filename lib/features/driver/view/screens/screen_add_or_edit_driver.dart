@@ -158,51 +158,55 @@ class ScreenAddOrEditDriver extends StatelessWidget {
                     },
                   ),
                   const SizedBox(height: 20),
-                  SaveButton(
-                    onPressed: () {
-                      if (profileImage == null) {
-                        showCustomSnackBar(
-                          context: context,
-                          content: 'Profile pic is missing, try to add one',
-                        );
-                      }
-                      if (!_formKey.currentState!.validate()) {
-                        return;
-                      }
-                      if (isEdit) {
-                        context.read<DriverBloc>().add(
-                          DriverEvent.editDriver(
-                            DriverModel(
-                              id: driver!.id,
-                              name: _nameController.text.trim(),
-                              email: _emailController.text.trim(),
-                              password: _passwordController.text.trim(),
-                              phoneNo: _phoneController.text.trim(),
-                              profile: profileImage?.path ?? driver!.profile,
-                            ),
-                          ),
-                        );
-                      } else {
-                        context.read<DriverBloc>().add(
-                          DriverEvent.addDrivers(
-                            id: null,
-                            name: _nameController.text.trim(),
-                            email: _emailController.text.trim(),
-                            password: _passwordController.text.trim(),
-                            phone: _phoneController.text.trim(),
-                            profile: profileImage?.path,
-                            routes: [],
-                          ),
-                        );
-                      }
-                    },
-                  ),
+                  _saveButton(profileImage, context),
                 ],
               ),
             ),
           ),
         ),
       ),
+    );
+  }
+
+  SaveButton _saveButton(File? profileImage, BuildContext context) {
+    return SaveButton(
+      onPressed: () {
+        if (profileImage == null) {
+          showCustomSnackBar(
+            context: context,
+            content: 'Profile pic is missing, try to add one',
+          );
+        }
+        if (!_formKey.currentState!.validate()) {
+          return;
+        }
+        if (isEdit) {
+          context.read<DriverBloc>().add(
+            DriverEvent.editDriver(
+              DriverModel(
+                id: driver!.id,
+                name: _nameController.text.trim(),
+                email: _emailController.text.trim(),
+                password: _passwordController.text.trim(),
+                phoneNo: _phoneController.text.trim(),
+                profile: profileImage?.path ?? driver!.profile,
+              ),
+            ),
+          );
+        } else {
+          context.read<DriverBloc>().add(
+            DriverEvent.addDrivers(
+              id: null,
+              name: _nameController.text.trim(),
+              email: _emailController.text.trim(),
+              password: _passwordController.text.trim(),
+              phone: _phoneController.text.trim(),
+              profile: profileImage?.path,
+              routes: [],
+            ),
+          );
+        }
+      },
     );
   }
 }

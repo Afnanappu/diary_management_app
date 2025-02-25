@@ -134,43 +134,48 @@ class _ScreenAddOrEditRouteState extends State<ScreenAddOrEditRoute> {
               },
             ),
             SizedBox(height: 20),
-            SaveButton(
-              onPressed: () {
-                if (selectedDriver == null || selectedStores.isEmpty) {
-                  showCustomSnackBar(
-                    context: context,
-                    content: "Please select a driver and at least one store.",
-                  );
-                  return;
-                }
-
-                if (widget.isEdit) {
-                  context.read<RouteBloc>().add(
-                    RouteEvent.editRoute(
-                      id: widget.route!.id,
-                      driver: selectedDriver!,
-                      routeName: _nameController.text.trim(),
-                      selectedStores: selectedStores,
-                    ),
-                  );
-                } else {
-                  context.read<RouteBloc>().add(
-                    RouteEvent.addRoute(
-                      id: null,
-                      driver: selectedDriver!,
-                      routeName: _nameController.text.trim(),
-                      selectedStores: selectedStores,
-                    ),
-                  );
-                }
-
-                Nav.pop(context);
-              },
-            ),
+            
+            _saveButton(context),
           ],
         ),
       ),
       resizeToAvoidBottomInset: false,
     );
+  }
+
+  SaveButton _saveButton(BuildContext context) {
+    return SaveButton(
+            onPressed: () {
+              if (selectedDriver == null || selectedStores.isEmpty) {
+                showCustomSnackBar(
+                  context: context,
+                  content: "Please select a driver and at least one store.",
+                );
+                return;
+              }
+
+              if (widget.isEdit) {
+                context.read<RouteBloc>().add(
+                  RouteEvent.editRoute(
+                    id: widget.route!.id,
+                    driver: selectedDriver!,
+                    routeName: _nameController.text.trim(),
+                    selectedStores: selectedStores,
+                  ),
+                );
+              } else {
+                context.read<RouteBloc>().add(
+                  RouteEvent.addRoute(
+                    id: null,
+                    driver: selectedDriver!,
+                    routeName: _nameController.text.trim(),
+                    selectedStores: selectedStores,
+                  ),
+                );
+              }
+
+              Nav.pop(context);
+            },
+          );
   }
 }

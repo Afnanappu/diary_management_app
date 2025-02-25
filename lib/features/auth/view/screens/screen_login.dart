@@ -1,16 +1,10 @@
-import 'package:dairy_management_app/core/components/custom_snack_bar.dart';
 import 'package:dairy_management_app/core/components/custom_text_field.dart';
 import 'package:dairy_management_app/core/constants/app_screen_size.dart';
-import 'package:dairy_management_app/core/constants/navigation.dart';
-import 'package:dairy_management_app/core/services/app_services.dart';
 import 'package:dairy_management_app/core/utils/validations.dart';
-import 'package:dairy_management_app/features/dashboard/view/screens/screen_dashboard.dart';
-import 'package:dairy_management_app/features/driver/view_model/bloc_driver/driver_bloc.dart';
-import 'package:dairy_management_app/features/user_side/view/screens/screen_user_side.dart';
+import 'package:dairy_management_app/features/auth/view/widgets/login_button.dart';
+import 'package:dairy_management_app/features/auth/view/widgets/login_top_clip_path.dart';
 import 'package:flutter/material.dart';
 import 'package:dairy_management_app/core/constants/app_colors.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -34,30 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Stack(
           children: [
             // Top Clipper Design
-            ClipPath(
-              clipper: WaveClipperTwo(),
-              child: Container(
-                height: 250,
-                decoration: BoxDecoration(color: AppColors.primary),
-                child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/van_icon_w.png', scale: 1.8),
-                      SizedBox(height: 10),
-                      Text(
-                        "Dairy Van",
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            LoginTopClipPath(),
 
             // Login Form
             SizedBox(
@@ -138,70 +109,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               SizedBox(height: 15),
                               // Login Button
-                              ElevatedButton(
-                                onPressed: () {
-                                  if (!_formKey.currentState!.validate()) {
-                                    showCustomSnackBar(
-                                      context: context,
-                                      content:
-                                          'Login failed, please try again!',
-                                    );
-                                    return;
-                                  }
-                                  if (isAdmin) {
-                                    if (_emailController.text.trim() ==
-                                            'admin@gmail.com' &&
-                                        _passwordController.text.trim() ==
-                                            '12345678') {
-                                      Nav.pushReplace(
-                                        context,
-                                        ScreenDashboard(),
-                                      );
-                                      return;
-                                    }
-                                  } else {
-                                    final (isPossible, model) = context
-                                        .read<DriverBloc>()
-                                        .checkLogin(
-                                          _emailController.text.trim(),
-                                          _passwordController.text.trim(),
-                                        );
-
-                                    if (isPossible) {
-                                      Nav.pushReplace(
-                                        context,
-                                        ScreenUserSide(model: model!),
-                                      );
-                                    } else {
-                                      showCustomSnackBar(
-                                        context: context,
-                                        content:
-                                            'Login failed, please try again!',
-                                      );
-                                      return;
-                                    }
-                                  }
-
-                                  //update the app service login as seen
-                                  AppServices.updateLogin = true;
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.primary,
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: 40,
-                                    vertical: 12,
-                                  ),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                ),
-                                child: Text(
-                                  isAdmin ? 'Login as Admin' : "Login",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                  ),
-                                ),
+                              LoginButton(
+                                formKey: _formKey,
+                                isAdmin: isAdmin,
+                                emailController: _emailController,
+                                passwordController: _passwordController,
                               ),
                               SizedBox(height: 10),
                               TextButton(

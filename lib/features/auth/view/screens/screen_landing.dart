@@ -83,7 +83,3 @@ class LandingScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-// WaveClipperOne()
