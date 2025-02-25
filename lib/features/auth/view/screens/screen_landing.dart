@@ -58,7 +58,7 @@ class LandingScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Navigate to login screen
-                    Nav.push(context, LoginScreen());
+                    Nav.pushReplace(context, LoginScreen());
 
                     //Update the app service to set the landing is watched
                     AppServices.updateSawLanding = true;
