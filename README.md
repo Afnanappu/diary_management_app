@@ -1,57 +1,16 @@
-# Dairy Management App
+# dairy_management_app
 
-## Business Overview
-A dairy operation unit that manages the production and distribution of dairy products within a shorter distance using a fleet of vehicles and dedicated salesmen/drivers. The workflow includes:
-- Receiving milk supplies via milk tankers.
-- Manufacturing dairy products.
-- Storing byproducts in cold storage.
-- Delivering products to retail stores using trucks.
-- Salesmen delivering products to stores and returning leftover stock to cold storage.
+A new Flutter project.
 
-## Features
-### 1. Landing Page & Login Screen
-- A welcoming **landing page** for the app.
-- A **secure login screen** allowing users to enter their credentials and access the app.
+## Getting Started
 
-### 2. Master Data Management
-- **Manage Drivers (Salesmen)**:
-  - Add, view, edit, and delete driver details.
-- **Manage Retail Stores**:
-  - Add, view, edit, and delete store details.
-- **Grouping & Route Management**:
-  - Group different stores into routes.
-  - Assign routes to drivers for efficient delivery.
+This project is a starting point for a Flutter application.
 
-### 3. Navigation & Store Visit Tracking
-- **Route Navigation**:
-  - Once a driver logs in, the app provides a navigation guide to assigned stores.
-  - Uses location coordinates to assist with directions.
-- **Visit Tracking**:
-  - Drivers can mark visits as **completed** with a timestamp for reference.
-  
-## Tech Stack
-- **Frontend**: Flutter
-- **Database**: Hive
-- **Maps & Navigation**: flutter_map
+A few resources to get you started if this is your first Flutter project:
 
-## Installation & Setup
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/Afnanappu/diary_management_app
-   cd dairy-management-app
-   ```
-2. Install dependencies:
-   ```sh
-   flutter pub get
-   ```
-3. Run the app:
-   ```sh
-   flutter run
-   ```
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-## Contribution
-Contributions are welcome! Feel free to submit a pull request.
-
-## License
-MIT License
-
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
